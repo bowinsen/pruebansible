@@ -1,0 +1,20 @@
+- name: Test telegram module
+  hosts: localhost
+  connection: local
+  tasks:
+    - copy: src=/root/telegram/pruebatelegram dest=/root/telegram/modificado
+      register: prueba
+      ignore_errors: true
+    - name: Mensaje de que funciona
+      telegram:
+        token: "787269337:AAFnBYLFxNB6NlJb2jia77U5yqyoD-nW6CI"
+        chat_id: 354187840
+        msg: "Se ha modificado correctamente"
+      when: prueba.changed
+
+    - name: Mensaje de que no funciona
+      telegram:
+        token: "787269337:AAFnBYLFxNB6NlJb2jia77U5yqyoD-nW6CI"
+        chat_id: 354187840
+        msg: "No se ha modificado"
+      when: not prueba.changed
