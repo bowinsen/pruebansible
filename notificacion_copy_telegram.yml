@@ -7,14 +7,14 @@
       ignore_errors: true
     - name: Mensaje de que funciona
       telegram:
-        token: "787269337:AAFnBYLFxNB6NlJb2jia77U5yqyoD-nW6CI"
-        chat_id: 354187840
+        token: "TOKEN DE TU BOT DE TELEGRAM"
+        chat_id: ID DEL CHAT EN EL QUE QUIERES QUE SE NOTIFIQUE
         msg: "Se ha modificado correctamente"
       when: prueba.changed
 
     - name: Mensaje de que no funciona
       telegram:
-        token: "787269337:AAFnBYLFxNB6NlJb2jia77U5yqyoD-nW6CI"
-        chat_id: 354187840
+        token: "TOKEN DE TU BOT DE TELEGRAM"
+        chat_id: ID DEL CHAT EN EL QUE QUIERES QUE SE NOTIFIQUE
         msg: "No se ha modificado"
       when: not prueba.changed
